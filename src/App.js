@@ -6,13 +6,15 @@ import { increaseCount, decreaseCount } from "./features/counter/counterSlice";
 function App() {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.counter.count);
+  const [input, setInput] = useState(0)
 
   const increment = () => {
-    dispatch(increaseCount());
+    dispatch(increaseCount(Number(input)));
   };
 
   const decrement = () => {
-    dispatch(decreaseCount());
+    dispatch(decreaseCount(Number(input)));
+
   };
 
   return (
@@ -30,7 +32,7 @@ function App() {
           </div>
         </div>
         <div className="counter__input">
-          <input type="text" />
+          <input type="text" value={input == 0 ? "" : input} onChange={(e)=>{setInput(e.target.value)}}/>
         </div>
       </div>
     </div>
