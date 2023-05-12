@@ -4,14 +4,17 @@ const counterSlice = createSlice({
   name: "counter",
   initialState: { count: 0 },
   reducers: {
-    increment: (state, action) => {
+    increaseCount: (state, action) => {
       state.count += 1;
     },
-    decrement: (state, action) => {
+    decreaseCount: (state, action) => {
       state.count -= 1;
     },
+    byAmount: (state, action) => {
+
+    }
   },
 });
 
 export default counterSlice.reducer;
-export const { increment, decrement } = counterSlice.actions;
+export const { increaseCount, decreaseCount , byAmount } = counterSlice.actions;

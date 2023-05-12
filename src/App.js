@@ -1,16 +1,19 @@
-import React, { useState } from "react";
 import "../src/App.css";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { increaseCount, decreaseCount } from "./features/counter/counterSlice";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter.count);
 
   const increment = () => {
-    setCount(count + 1)
-  }
+    dispatch(increaseCount());
+  };
 
   const decrement = () => {
-    setCount(count - 1)
-  }
+    dispatch(decreaseCount());
+  };
 
   return (
     <div className="counter">
@@ -25,6 +28,9 @@ function App() {
           <div className="decrease__btn">
             <button onClick={decrement}>Decrease</button>
           </div>
+        </div>
+        <div className="counter__input">
+          <input type="text" />
         </div>
       </div>
     </div>

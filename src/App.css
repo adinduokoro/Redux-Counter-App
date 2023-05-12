@@ -23,3 +23,14 @@
 button {
     font-size: 2rem;
 }
+
+.counter__input{
+    margin-top: 1rem;
+}
+
+.counter__input input{
+    height: 4rem;
+    text-align: center;
+    font-size: 2rem;
+    width: 10rem;
+}
